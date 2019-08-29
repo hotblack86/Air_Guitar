@@ -27,3 +27,14 @@ handTrack.startVideo(video).then(status => {
     });
   }
 });
+
+function runDetection(){
+  model.detect(video).then(predictions => {
+    console.log(predictions);
+  })
+}
+
+
+handTrack.load(modelParams).then(lmodel => {
+  model = lmodel;
+})
