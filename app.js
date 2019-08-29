@@ -24,14 +24,17 @@ handTrack.startVideo(video).then(status => {
     navigator.getUserMedia({video: {}}, stream => {
       video.srcObject = stream;
       // Run our detection
-    });
+      setInterval(runDetection, 100);
+    },
+      err => console.log(err)
+    );
   }
 });
 
 function runDetection(){
   model.detect(video).then(predictions => {
     console.log(predictions);
-  })
+  });
 }
 
 
